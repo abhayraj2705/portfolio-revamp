@@ -1,22 +1,22 @@
 import { motion } from "framer-motion";
 
-const writings = [
-  { date: "april 5, 2026", title: "fix ec2 freezing during next.js build", link: "#" },
-  { date: "march 16, 2026", title: "build mcp servers in under a minute with the mcp builder skill", link: "#" },
-  { date: "march 12, 2026", title: "connect claude to your groww account: the python mcp server guide", link: "#" },
+const highlights = [
+  "cgpa of 8.96 — balancing academics with building production apps.",
+  "cut invalid ai outputs by ~40% with custom validation pipelines.",
+  "hands-on with gpt-4o, claude, gemini — wired into real products.",
 ];
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } }
+  visible: { transition: { staggerChildren: 0.06 } }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } }
+  hidden: { opacity: 0, x: -8 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } }
 };
 
-export function Writings() {
+export function Achievements() {
   return (
     <section>
       <motion.div
@@ -24,38 +24,25 @@ export function Writings() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        <h2 className="section-title">writings</h2>
-        
-        <motion.div 
+        <h2 className="section-title">highlights</h2>
+
+        <motion.div
           className="space-y-1"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {writings.map((w, i) => (
-            <motion.a 
-              key={i} 
-              href={w.link}
+          {highlights.map((item, i) => (
+            <motion.div
+              key={i}
               variants={itemVariants}
-              className="group grid grid-cols-[130px_1fr] sm:grid-cols-[150px_1fr] gap-4 text-[1.05rem] lowercase py-2.5 px-3 -mx-3 rounded-lg hover:bg-muted/30 transition-all duration-300"
+              className="group flex gap-3 items-start text-[1rem] lowercase py-2.5 px-4 -mx-4 rounded-lg hover:bg-muted/20 transition-all duration-300 leading-[1.7]"
             >
-              <span className="text-secondary/70 font-mono text-sm self-center group-hover:text-accent/70 transition-colors">{w.date}</span>
-              <span className="font-medium text-primary group-hover:text-accent transition-colors duration-300 flex items-center gap-2">
-                {w.title}
-                <svg className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-70 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                </svg>
-              </span>
-            </motion.a>
+              <span className="text-accent/40 mt-[3px] text-[10px] font-mono flex-shrink-0 group-hover:text-accent/70 transition-colors">✦</span>
+              <span className="text-primary/80 group-hover:text-primary transition-colors">{item}</span>
+            </motion.div>
           ))}
-          
-          <motion.div variants={itemVariants} className="mt-6 pt-2">
-            <a href="#" className="link-underline font-medium text-primary lowercase text-[1.05rem] inline-flex items-center gap-1.5">
-              read all writings
-              <span className="text-accent">→</span>
-            </a>
-          </motion.div>
         </motion.div>
       </motion.div>
     </section>

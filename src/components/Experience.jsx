@@ -1,17 +1,12 @@
 import { motion } from "framer-motion";
 
-const experiences = [
-  { icon: "△", company: "acme corp", link: "#", role: "frontend engineer", location: "bangalore, india" },
-  { icon: "◇", company: "startup inc", link: "#", role: "web developer intern", location: "remote" },
-];
-
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, x: -15 },
+  hidden: { opacity: 0, x: -12 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
 };
 
@@ -23,28 +18,37 @@ export function Experience() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        <h2 className="section-title">previous</h2>
+        <h2 className="section-title">experience</h2>
         
         <motion.div 
-          className="space-y-4"
+          className="space-y-2"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {experiences.map((exp, i) => (
-            <motion.div 
-              key={i}
-              variants={itemVariants}
-              className="group flex items-center gap-3 text-[1.05rem] lowercase py-2 px-3 -mx-3 rounded-lg hover:bg-muted/30 transition-all duration-300"
-            >
-              <span className="text-accent text-sm opacity-70 group-hover:opacity-100 transition-opacity">{exp.icon}</span>
-              <a href={exp.link} className="link-underline font-medium text-primary">{exp.company}</a>
-              <span className="text-secondary">~</span>
-              <span className="text-primary opacity-80 group-hover:opacity-100 transition-opacity">{exp.role}</span>
-              <span className="ml-auto text-xs font-mono text-secondary/60 hidden sm:block">[{exp.location}]</span>
-            </motion.div>
-          ))}
+          <motion.div 
+            variants={itemVariants}
+            className="group py-4 px-4 -mx-4 rounded-lg hover:bg-muted/20 transition-all duration-300"
+          >
+            <div className="flex items-baseline justify-between mb-1.5">
+              <span className="font-medium text-primary text-[1.08rem] lowercase">technical team member</span>
+              <span className="text-xs font-mono text-secondary/50 lowercase">jan 2025 – present</span>
+            </div>
+            <p className="text-secondary text-[0.95rem] lowercase mb-3 font-mono">
+              aces club · mit adt university, pune
+            </p>
+            <ul className="space-y-2 text-[1rem] text-primary/70 lowercase leading-relaxed">
+              <li className="flex gap-2.5">
+                <span className="text-accent/50 mt-[2px] flex-shrink-0 text-xs">▸</span>
+                <span>built internal tools and websites with a 5-member team, used by 200+ students across campus.</span>
+              </li>
+              <li className="flex gap-2.5">
+                <span className="text-accent/50 mt-[2px] flex-shrink-0 text-xs">▸</span>
+                <span>shipped technical solutions for 3+ university events — improved registration flow and engagement.</span>
+              </li>
+            </ul>
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>
