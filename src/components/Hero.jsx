@@ -1,4 +1,12 @@
 import { motion } from "framer-motion";
+import { HoverReveal } from "./HoverReveal";
+
+const greetings = [
+  "welcome to my corner of the internet ✦",
+  "let's build something extraordinary.",
+  "code, coffee, and endless curiosity.",
+  "glad you stopped by — stay a while.",
+];
 
 export function Hero() {
   return (
@@ -11,7 +19,10 @@ export function Hero() {
       >
         <div>
           <h1 className="text-[2rem] md:text-[2.5rem] font-semibold mb-2 tracking-tight lowercase leading-tight overflow-visible">
-            abhayraj b <span className="text-secondary/30 font-light mx-1">~</span>
+            <HoverReveal messages={greetings}>
+              abhayraj b
+            </HoverReveal>
+            {" "}<span className="text-secondary/30 font-light mx-1">~</span>
             <span className="font-devanagari gradient-text-deva font-medium">
               अभयराज
             </span>

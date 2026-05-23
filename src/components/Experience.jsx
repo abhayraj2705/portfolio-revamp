@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { HoverReveal } from "./HoverReveal";
 
 const containerVariants = {
   hidden: {},
@@ -32,7 +33,9 @@ export function Experience() {
             className="group py-4 px-4 -mx-4 rounded-lg hover:bg-muted/20 transition-all duration-300"
           >
             <div className="flex items-baseline justify-between mb-1.5">
-              <span className="font-medium text-primary text-[1.08rem] lowercase">technical team member</span>
+              <HoverReveal messages={["where it all started.", "from ideas to impact."]}>
+                <span className="font-medium text-primary text-[1.08rem] lowercase">technical team member</span>
+              </HoverReveal>
               <span className="text-xs font-mono text-secondary/50 lowercase">jan 2025 – present</span>
             </div>
             <p className="text-secondary text-[0.95rem] lowercase mb-3 font-mono">

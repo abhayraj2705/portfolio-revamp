@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
-
+import { HoverReveal } from "./HoverReveal";
 
 const projects = [
   {
@@ -11,9 +11,9 @@ const projects = [
     link: "https://github.com/abhayraj2705",
     tags: ["next.js", "node.js", "gpt-4o", "claude", "sandpack"],
     highlights: ["10+ api endpoints", "jwt auth", "live preview"],
-    color: "#7c3aed"
+    color: "#7c3aed",
+    hover: "the one i'm most proud of."
   },
-
   {
     title: "hackosquad",
     subtitle: "cybersecurity learning platform",
@@ -22,7 +22,8 @@ const projects = [
     link: "https://www.hackosquad.com",
     tags: ["react", "node.js", "express", "mongodb", "jwt"],
     highlights: ["role-based access", "lab modules", "progress tracking"],
-    color: "#0f172a"
+    color: "#0f172a",
+    hover: "security made simple."
   },
   {
     title: "edisip",
@@ -32,7 +33,8 @@ const projects = [
     link: "https://www.edisip.com",
     tags: ["next.js", "node.js", "mongodb", "razorpay", "express"],
     highlights: ["cart & checkout", "order management", "payment gateway"],
-    color: "#0d9488"
+    color: "#0d9488",
+    hover: "real payments, real users."
   },
   {
     title: "uniconnect",
@@ -42,7 +44,8 @@ const projects = [
     link: "https://uniconnect-qs2s.onrender.com/",
     tags: ["react", "node.js", "mongodb", "express"],
     highlights: ["15+ endpoints", "rbac system", "csv export"],
-    color: "#059669"
+    color: "#059669",
+    hover: "built for my campus."
   },
   {
     title: "getmeachai",
@@ -52,9 +55,9 @@ const projects = [
     link: "https://github.com/abhayraj2705",
     tags: ["next.js", "razorpay", "mongodb", "nextauth"],
     highlights: ["payment webhooks", "oauth flow", "real-time txns"],
-    color: "#f59e0b"
+    color: "#f59e0b",
+    hover: "where i learned payments."
   },
-
 ];
 
 function ProjectCard({ project, index }) {
@@ -85,7 +88,9 @@ function ProjectCard({ project, index }) {
         {/* Header row */}
         <div className="flex items-baseline justify-between w-full mb-1">
           <span className="text-[1.1rem] font-medium lowercase group-hover:text-accent transition-colors duration-300 flex items-center gap-2">
-            {project.title}
+            <HoverReveal messages={[project.hover]}>
+              {project.title}
+            </HoverReveal>
             <svg className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-60 group-hover:translate-x-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
             </svg>
@@ -127,7 +132,11 @@ export function Projects() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        <h2 className="section-title">builds</h2>
+        <h2 className="section-title">
+          <HoverReveal messages={["my favorite part ✦", "shipped, not just built."]}>
+            builds
+          </HoverReveal>
+        </h2>
 
         <div className="space-y-4">
           {projects.map((project, i) => (

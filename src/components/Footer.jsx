@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { HoverReveal } from "./HoverReveal";
 
 export function Footer() {
   const socials = [
@@ -15,7 +16,11 @@ export function Footer() {
     >
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-14">
         <div>
-          <h2 className="section-title mb-4">let's talk</h2>
+          <h2 className="section-title mb-4">
+            <HoverReveal messages={["seriously, i reply fast.", "don't be a stranger ✦", "coffee's on me."]}>
+              let's talk
+            </HoverReveal>
+          </h2>
           <p className="text-primary/80 lowercase text-[1.08rem] max-w-sm leading-relaxed">
             building something interesting? reach out at{" "}
             <a href="mailto:abhayraj27052005@gmail.com" className="link-underline text-primary font-medium">email</a>{" "}

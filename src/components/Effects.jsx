@@ -2,54 +2,92 @@ import { useEffect, useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 /**
- * Custom cursor that follows the mouse with a glowing trail
+ * Premium context-aware cursor with morphing ring and rotating text
  */
 export function CursorGlow() {
-  const cursorRef = useRef(null);
-  const trailRef = useRef(null);
+  const dotRef = useRef(null);
+  const ringRef = useRef(null);
 
   useEffect(() => {
-    const cursor = cursorRef.current;
-    const trail = trailRef.current;
-    if (!cursor || !trail) return;
+    const dot = dotRef.current;
+    const ring = ringRef.current;
+    if (!dot || !ring) return;
 
-    let mouseX = 0, mouseY = 0;
-    let trailX = 0, trailY = 0;
+    const inner = ring.querySelector(".cursor-ring-inner");
+    let mx = -100, my = -100;
+    let rx = -100, ry = -100;
+    let animId;
 
-    const handleMouseMove = (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursor.style.transform = `translate(${mouseX - 5}px, ${mouseY - 5}px)`;
+    const onMove = (e) => {
+      mx = e.clientX;
+      my = e.clientY;
+      dot.style.transform = `translate(${mx}px, ${my}px)`;
     };
 
-    const animate = () => {
-      trailX += (mouseX - trailX) * 0.08;
-      trailY += (mouseY - trailY) * 0.08;
-      trail.style.transform = `translate(${trailX - 20}px, ${trailY - 20}px)`;
-      requestAnimationFrame(animate);
+    const loop = () => {
+      rx += (mx - rx) * 0.13;
+      ry += (my - ry) * 0.13;
+      ring.style.transform = `translate(${rx}px, ${ry}px)`;
+      animId = requestAnimationFrame(loop);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    animate();
+    const setState = (state) => {
+      inner.dataset.state = state;
+      dot.dataset.state = state;
+    };
 
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    const onOver = (e) => {
+      const el = e.target.closest("a, button, .glow-card, .tag-box, [role='button']");
+      if (!el) return;
+      setState(el.matches(".glow-card") ? "project" : "link");
+    };
+
+    const onOut = (e) => {
+      const rel = e.relatedTarget;
+      if (!rel || !rel.closest?.("a, button, .glow-card, .tag-box, [role='button']")) {
+        setState("");
+      }
+    };
+
+    window.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseover", onOver);
+    document.addEventListener("mouseout", onOut);
+    loop();
+
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseover", onOver);
+      document.removeEventListener("mouseout", onOut);
+      cancelAnimationFrame(animId);
+    };
   }, []);
 
   return (
     <>
-      <div
-        ref={cursorRef}
-        className="fixed top-0 left-0 w-2.5 h-2.5 bg-accent rounded-full pointer-events-none z-[9999] mix-blend-difference"
-        style={{ willChange: "transform" }}
-      />
-      <div
-        ref={trailRef}
-        className="fixed top-0 left-0 w-10 h-10 rounded-full pointer-events-none z-[9998] opacity-30"
-        style={{
-          willChange: "transform",
-          background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
-        }}
-      />
+      {/* Dot — instant follow */}
+      <div ref={dotRef} className="cursor-dot" />
+
+      {/* Ring — smooth follow, morphs on hover */}
+      <div ref={ringRef} className="cursor-ring">
+        <div className="cursor-ring-inner">
+          <div className="cursor-ring-border" />
+          <span className="cursor-ring-label">view</span>
+          <svg className="cursor-ring-text" viewBox="0 0 100 100">
+            <defs>
+              <path
+                id="cursorTextPath"
+                d="M 50,50 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"
+                fill="none"
+              />
+            </defs>
+            <text>
+              <textPath href="#cursorTextPath">
+                VIEW · PROJECT · VIEW · PROJECT ·
+              </textPath>
+            </text>
+          </svg>
+        </div>
+      </div>
     </>
   );
 }
