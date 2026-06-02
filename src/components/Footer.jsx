@@ -4,7 +4,7 @@ import { HoverReveal } from "./HoverReveal";
 export function Footer() {
   const socials = [
     { name: "github", href: "https://github.com/abhayraj2705" },
-    { name: "linkedin", href: "https://linkedin.com/in/abhayraj-b" },
+    { name: "linkedin", href: "https://www.linkedin.com/in/abhayraj-b-474890293/" },
     { name: "email", href: "mailto:abhayraj27052005@gmail.com" },
   ];
 
@@ -25,7 +25,7 @@ export function Footer() {
             building something interesting? reach out at{" "}
             <a href="mailto:abhayraj27052005@gmail.com" className="link-underline text-primary font-medium">email</a>{" "}
             or connect on{" "}
-            <a href="https://linkedin.com/in/abhayraj-b" target="_blank" rel="noreferrer" className="link-underline text-primary font-medium">linkedin</a>.
+            <a href="https://www.linkedin.com/in/abhayraj-b-474890293/" target="_blank" rel="noreferrer" className="link-underline text-primary font-medium">linkedin</a>.
           </p>
           <p className="text-secondary/40 text-xs font-mono lowercase mt-3 tracking-wide">
             +91 78029 14425
