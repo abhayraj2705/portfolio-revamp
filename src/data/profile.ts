@@ -1,7 +1,6 @@
 export const profile = {
   name: "Abhayraj B",
   nameDeva: "अभयराज",
-  cityDeva: "पुणे",
   city: "Pune",
   country: "India",
   coords: "18.52°N 73.85°E",

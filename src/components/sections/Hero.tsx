@@ -8,6 +8,7 @@ import { useSectionLink } from "@/components/chrome/Nav";
 import { CountUp } from "@/components/ui/CountUp";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { RotatingWord } from "./RotatingWord";
+import { NameSwap } from "./NameSwap";
 
 export function Hero() {
   const { motion, introDone } = useSite();
@@ -72,9 +73,7 @@ export function Hero() {
             {profile.sub}
           </p>
           <div data-hero-fade className="flex items-start justify-between md:col-span-5 md:flex-col md:items-end md:text-right">
-            <p className="font-deva text-3xl text-ink">
-              {profile.nameDeva} <span className="text-muted">·</span> {profile.cityDeva}
-            </p>
+            <NameSwap start={introDone} />
             <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">{profile.coords}</p>
           </div>
         </div>
