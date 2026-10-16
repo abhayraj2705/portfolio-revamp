@@ -2,7 +2,9 @@
 
 How everything moves. The design is in [DESIGN.md](DESIGN.md) and the copy is in [CONTENT.md](CONTENT.md).
 
-**Rule of thumb:** use GSAP (+ ScrollTrigger, SplitText) for timelines and anything scroll-linked. Use Motion (`motion/react`) for component state such as mount/unmount, layout changes and tabs. Use Lenis for the scroll itself. Never animate the same property on one element with two libraries.
+**Rule of thumb:** use GSAP (+ ScrollTrigger, SplitText) for timelines, anything scroll-linked and JS-driven motion. Use plain CSS transitions/keyframes for component state (tabs, menu, toast, palette, preview card). Use Lenis for the scroll itself.
+
+> **Build note (2026-10-17):** the first build also used Motion (`motion/react`) for component state. It was removed because it added a 142 KB chunk to the critical path, and everything it did is now GSAP or CSS. The scroll progress bar uses a CSS scroll-driven animation (`animation-timeline: scroll()`), so it needs no JS.
 
 ---
 
@@ -117,9 +119,9 @@ Touch devices: no cursor, no magnetic effect, no preview card. Work rows show a 
 
 | Transition | Spec |
 |---|---|
-| **Tabs (How I work)** | Underline `layoutId` slide (`spring: stiffness 400, damping 35`). Panel content crossfades with `y 8→0` (`sm`). |
+| **Tabs (How I work)** | The underline slides to the active tab (CSS `transform`/`width` transition, 500ms, outSoft). The panel fades up `y 8→0` (`.anim-fade-up`). |
 | **Mobile menu** | Overlay `clip-path: circle(0% at top right) → circle(150%)` (`lg`, `inOut`). Links stagger in by line mask. Close reverses at 0.8× speed. |
-| **Command palette** | Backdrop fades in. The panel goes `scale .96→1, opacity 0→1, y 8→0` (`sm`, `outSoft`). Results list uses `layout`. |
+| **Command palette** | Backdrop fades in. The panel goes `scale .96→1, opacity 0→1, y 8→0` (`.anim-pop-in`). Lazy-loaded after hydration. |
 | **Theme toggle** | `document.startViewTransition` with a circular `clip-path` reveal from the toggle's position (`.6s`, `inOut`). Fallback is an instant swap. |
 | **Home → case study** | View Transition. The work thumbnail has `view-transition-name: work-<slug>` and morphs into the case-study hero. Other content crossfades (`vt-in`/`vt-out` keyframes, `.5s`). Without VT support there is a plain fade. |
 | **Toast ("Email copied ✓")** | Slides up from the bottom-centre, `y 20→0`, auto-dismisses after 2s. |

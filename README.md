@@ -1,16 +1,51 @@
-# React + Vite
+# Abhayraj B: portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio. Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · GSAP (ScrollTrigger, SplitText) · Lenis.
 
-Currently, two official plugins are available:
+The design and motion specs are in [`docs/`](docs/): [CONTENT](docs/CONTENT.md) · [DESIGN](docs/DESIGN.md) · [MOTION](docs/MOTION.md).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Run it
 
-## React Compiler
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build && npm start   # production build
+npm run lint && npm run typecheck
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Edit content
 
-## Expanding the ESLint configuration
+All copy lives in typed data files, so you don't need to touch components:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| What | File |
+|---|---|
+| Name, headline, rotating words, stats, About text, email, socials | `src/data/profile.ts` |
+| Featured projects + case studies, "More work" | `src/data/projects.ts` |
+| Timeline (experience, education) and certifications | `src/data/experience.ts` |
+| Capabilities tabs, process steps, toolbox marquee | `src/data/skills.ts` |
+
+Common tasks:
+- **Add your résumé:** put `resume.pdf` in `public/`, then set `resume: "/resume.pdf"` in `profile.ts`. The button appears in Contact.
+- **Add a certification link:** set `href` on the entry in `experience.ts`.
+- **Add a project screenshot:** drop a `.webp` (about 1600px wide) in `public/work/` and set `image` on the project. Projects without one get a typographic poster.
+- **Custom domain:** set `NEXT_PUBLIC_SITE_URL` in Vercel. It's used for canonical URLs, the sitemap and OG images.
+
+## Structure
+
+```
+app/                   routes: home, /work/[slug], 404, OG image, sitemap, robots
+src/components/
+  sections/            Loader, Hero, About (pixel portrait), HowIWork, Work, Journey, Toolbox, Contact, Footer
+  chrome/              Nav + mobile menu, ⌘K command palette, TransitionLink (view transitions)
+  ui/                  SplitReveal, Reveal, CountUp, Magnetic, Cursor, ScrollProgress
+  providers/           SiteProvider (theme, motion switch, intro, toasts), SmoothScroll (Lenis ↔ GSAP)
+src/data/              all content
+src/lib/               motion tokens, GSAP registration, Lenis store, helpers
+```
+
+## Behaviour notes
+
+- **Motion switch** (nav, ⌘K): it defaults to `prefers-reduced-motion`. When off, there's no Lenis, loader, scrub, marquee or cursor, and all content is visible.
+- **Theme:** it defaults to `prefers-color-scheme`. The choice is saved, and it's applied before first paint, so there's no flash.
+- **Loader:** it plays once per browser session on `/` only.
+- Vercel Analytics and Speed Insights only load when deployed. Locally their scripts 404, which is expected.

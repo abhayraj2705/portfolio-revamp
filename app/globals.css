@@ -1,0 +1,326 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+@custom-variant motion-off (&:where([data-motion="off"], [data-motion="off"] *));
+
+/* ─── Tokens (see docs/DESIGN.md §3) ─── */
+:root {
+  --bg: #0a0908;
+  --surface: #12100e;
+  --surface-2: #1a1714;
+  --ink: #f1ece4;
+  --ink-2: #c9c3b8;
+  --muted: #8f897f;
+  --line: #f1ece41f;
+  --accent: #ff6a2b;
+  --accent-ink: #0a0908;
+  --ok: #4ade80;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  --fs-mega: clamp(3.25rem, 10.5vw, 11rem);
+  --fs-h1: clamp(2.5rem, 6vw, 5.5rem);
+  --fs-h2: clamp(1.75rem, 3.2vw, 3rem);
+  --fs-lg: clamp(1.125rem, 1.4vw, 1.375rem);
+
+  --pad-x: clamp(16px, 4vw, 64px);
+  --section-y: clamp(96px, 14vh, 200px);
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #f4efe7;
+  --surface: #ebe5db;
+  --surface-2: #e2dbcf;
+  --ink: #141210;
+  --ink-2: #3a3631;
+  --muted: #645d54;
+  --line: #1412101f;
+  --accent: #d9480f;
+  --accent-ink: #ffffff;
+  --ok: #15803d;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-ok: var(--ok);
+
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-serif: var(--font-instrument), Georgia, serif;
+  --font-deva: var(--font-deva), serif;
+
+  --ease-out: var(--ease-out);
+  --ease-out-soft: var(--ease-out-soft);
+  --ease-in-out: var(--ease-in-out);
+}
+
+/* ─── Base ─── */
+@layer base {
+  html {
+    background: var(--bg);
+    -webkit-text-size-adjust: 100%;
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-stopped {
+    overflow: clip;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+    transition: background-color 0.4s var(--ease-out-soft), color 0.4s var(--ease-out-soft);
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
+/* ─── Utilities ─── */
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: var(--pad-x);
+  }
+  .section {
+    padding-block: var(--section-y);
+  }
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+  }
+  .hairline {
+    border-color: var(--line);
+  }
+
+  /* Line-mask wrapper for text reveals */
+  .mask {
+    display: block;
+    overflow: clip;
+    padding-bottom: 0.08em;
+    margin-bottom: -0.08em;
+  }
+
+  /* Animated underline (MOTION.md §6) */
+  .u-link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s var(--ease-out-soft);
+  }
+  .u-link:hover,
+  .u-link:focus-visible {
+    background-size: 100% 1px;
+    background-position: 0% 100%;
+  }
+
+  /* Text roll for nav labels */
+  .roll {
+    display: inline-flex;
+    flex-direction: column;
+    height: 1.2em;
+    line-height: 1.2em;
+    overflow: clip;
+  }
+  .roll > span {
+    transition: transform 0.35s var(--ease-out-soft);
+  }
+  .group:hover .roll > span,
+  .group:focus-visible .roll > span {
+    transform: translateY(-100%);
+  }
+
+  .arrow {
+    display: inline-block;
+    transition: transform 0.3s var(--ease-out-soft);
+  }
+  .group:hover .arrow {
+    transform: translate(2px, -2px);
+  }
+
+  .status-dot {
+    position: relative;
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--ok);
+    flex: none;
+  }
+  .status-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--ok);
+    animation: pulse 2s var(--ease-out) infinite;
+  }
+
+  .glass {
+    background: color-mix(in oklab, var(--bg) 62%, transparent);
+    backdrop-filter: blur(16px) saturate(135%);
+    -webkit-backdrop-filter: blur(16px) saturate(135%);
+    border: 1px solid var(--line);
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    .glass {
+      background: var(--surface);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+  }
+
+  .grain {
+    position: fixed;
+    inset: -50%;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain 1s steps(6) infinite;
+  }
+  [data-theme="light"] .grain {
+    opacity: 0.07;
+    mix-blend-mode: multiply;
+  }
+
+  .pixelated {
+    image-rendering: pixelated;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-5%, 3%); }
+  40% { transform: translate(4%, -6%); }
+  60% { transform: translate(-3%, 7%); }
+  80% { transform: translate(6%, 2%); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes scroll-cue {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* ─── Small CSS-only animations (no JS animation library on the critical path) ─── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+.anim-fade-up { animation: fade-up 0.35s var(--ease-out-soft) both; }
+.anim-fade-in { animation: fade-in 0.2s linear both; }
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+.anim-pop-in { animation: pop-in 0.3s var(--ease-out-soft) both; }
+
+/* Scroll progress bar on a CSS scroll timeline; hidden where unsupported */
+.scroll-progress {
+  transform-origin: left;
+  transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+@keyframes progress {
+  to { transform: scaleX(1); }
+}
+
+/* ─── View transitions (MOTION.md §7) ─── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: var(--ease-in-out);
+}
+::view-transition-group(*) {
+  animation-duration: 0.6s;
+  animation-timing-function: var(--ease-in-out);
+}
+/* Theme swap is a circular reveal driven from JS */
+html[data-vt="theme"]::view-transition-old(root),
+html[data-vt="theme"]::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* ─── Motion off / reduced (MOTION.md §8) ─── */
+html[data-motion="off"] .grain,
+html[data-motion="off"] .status-dot::after,
+html[data-motion="off"] .anim-fade-up,
+html[data-motion="off"] .anim-pop-in,
+html[data-motion="off"] .anim-fade-in {
+  animation: none;
+}
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  scroll-behavior: auto !important;
+  transition-duration: 0.01ms !important;
+}
+html[data-motion="off"] ::view-transition-group(*),
+html[data-motion="off"] ::view-transition-old(*),
+html[data-motion="off"] ::view-transition-new(*) {
+  animation: none !important;
+}
+
+/* Loader never shows for return visits, sub-pages or motion off (set pre-paint) */
+html[data-intro="skip"] [data-loader] {
+  display: none;
+}

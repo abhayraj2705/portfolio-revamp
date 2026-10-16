@@ -168,16 +168,16 @@ Why move off the Vite SPA:
 | Styling | `tailwindcss@4` (CSS-first `@theme` tokens), `clsx`, `tailwind-merge` | Keep the current setup |
 | Scroll | `lenis` | Smooth scroll, synced to GSAP's ticker |
 | Timeline / scroll animation | `gsap` + `@gsap/react` (`useGSAP`), ScrollTrigger, **SplitText** | All GSAP plugins are free since 3.13 |
-| Component animation | `motion` (the renamed `framer-motion`) | Layout animations, tab underline, menu, `AnimatePresence` |
-| Page transitions | View Transitions API (React `<ViewTransition>` / Next's `viewTransition` flag), with a CSS fallback | Shared-element work → case study |
-| Content | `@next/mdx` or `velite` | Case studies as MDX with typed frontmatter |
+| Component animation | Plain CSS transitions/keyframes | Tabs, menu, toast, palette, preview card. (Motion was tried and removed: +142 KB on the critical path.) |
+| Page transitions | View Transitions API via a small `TransitionLink` wrapper around `next/link`, with a plain-navigation fallback | Shared-element work → case study |
+| Content | Typed data files in `src/data/*.ts` | Case studies live in `projects.ts`. Move to MDX if they grow long. |
 | Icons | `lucide-react` | Keep |
 | Analytics | `@vercel/analytics` + Speed Insights | Free tier |
 | Quality | ESLint flat config, Prettier, Lighthouse CI (optional) | |
 
 Drop: WebGL/`three` scenes (not needed for this direction; they cost INP/LCP) and the global `cursor: none`.
 
-**Migration path:** do it on a new branch. `npx create-next-app@latest` → move `src/components/*` to `app/_components` → move copy into `src/data/*.ts` (generated from CONTENT.md) → swap the `framer-motion` imports to `motion/react` → add GSAP/Lenis providers.
+**Migration path:** do it on a new branch. `npx create-next-app@latest` → move `src/components/*` to `app/_components` → move copy into `src/data/*.ts` (generated from CONTENT.md) → add GSAP/Lenis providers. **Done on branch `rebuild/next`, 2026-10-17.**
 
 ### Proposed structure
 ```
