@@ -11,19 +11,19 @@ export type TimelineEntry = {
 
 export const timeline: TimelineEntry[] = [
   {
-    year: "2026",
+    year: "2023",
     items: [
       {
-        title: "Full Stack Developer Intern",
-        org: "HackoSquad",
-        when: "Mar to Aug 2026",
-        bullets: [
-          "Shipped 8 production full-stack features (React, Node, Express, MongoDB, REST) across 3 delivery milestones.",
-          "Found and fixed 15 bugs through structured testing and root-cause analysis, improving app stability.",
-        ],
+        title: "B.Tech, Computer Science & Engineering",
+        org: "MIT ADT University, Pune",
+        when: "2023 to 2027",
+        note: "CGPA 8.96",
       },
-      { title: "Launched IDEA", note: "An AI app builder that plans, generates and self-heals full-stack repos. Public beta." },
     ],
+  },
+  {
+    year: "2024",
+    items: [{ title: "First product with real payments", note: "GetMeAChai, with Razorpay, webhooks and OAuth." }],
   },
   {
     year: "2025",
@@ -41,18 +41,18 @@ export const timeline: TimelineEntry[] = [
     ],
   },
   {
-    year: "2024",
-    items: [{ title: "First product with real payments", note: "GetMeAChai, with Razorpay, webhooks and OAuth." }],
-  },
-  {
-    year: "2023",
+    year: "2026",
     items: [
       {
-        title: "B.Tech, Computer Science & Engineering",
-        org: "MIT ADT University, Pune",
-        when: "2023 to 2027",
-        note: "CGPA 8.96",
+        title: "Full Stack Developer Intern",
+        org: "HackoSquad",
+        when: "Mar to Aug 2026",
+        bullets: [
+          "Shipped 8 production full-stack features (React, Node, Express, MongoDB, REST) across 3 delivery milestones.",
+          "Found and fixed 15 bugs through structured testing and root-cause analysis, improving app stability.",
+        ],
       },
+      { title: "Launched IDEA", note: "An AI app builder that plans, generates and self-heals full-stack repos. Public beta." },
     ],
   },
   {
