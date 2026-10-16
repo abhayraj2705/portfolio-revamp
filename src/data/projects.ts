@@ -35,11 +35,11 @@ export const featured: Project[] = [
     hover: "the one I'm most proud of.",
     accent: "#ff5b3a",
     caseStudy: {
-      role: "Solo — product, design, full-stack",
+      role: "Solo: product, design, full-stack",
       problem:
         "Most AI app builders hand you a pretty demo that falls apart the moment you clone it. Generated code that doesn't compile, imports that point nowhere, a backend that was never really there.",
       built: [
-        "A planning step that turns one prompt into a project spec — routes, data models, stack — before a single file is written.",
+        "A planning step that turns one prompt into a project spec (routes, data models, stack) before a single file is written.",
         "File-by-file generation with GPT-4o and Claude, streamed into a live Sandpack preview.",
         "A compile → validate → heal loop: every output is type-checked and linted, and failures are fed back to the model with the exact error until the build is green.",
         "Templates, stack and database pickers, bring-your-own provider key, and one-click export / clone of the full repository.",
@@ -63,16 +63,16 @@ export const featured: Project[] = [
     kind: "Cybersecurity learning platform",
     year: "2026",
     tag: "Internship",
-    oneLiner: "Labs, challenges and learning paths for security learners — without the noise.",
+    oneLiner: "Labs, challenges and learning paths for security learners, without the noise.",
     stack: ["React", "Node.js", "Express", "MongoDB", "JWT"],
     highlights: ["8 features shipped", "3 delivery milestones", "15 issues resolved", "role-based access"],
     link: "https://www.hackosquad.com",
     hover: "security made simple.",
     accent: "#4ade80",
     caseStudy: {
-      role: "Full Stack Developer Intern · Mar – Aug 2026",
+      role: "Full Stack Developer Intern · Mar to Aug 2026",
       problem:
-        "Security learners bounce between scattered blogs, videos and CTF sites. HackoSquad pulls labs, challenges and curated paths into one place — and needed to scale features fast without breaking what was already live.",
+        "Security learners bounce between scattered blogs, videos and CTF sites. HackoSquad pulls labs, challenges and curated paths into one place, and needed to scale features fast without breaking what was already live.",
       built: [
         "8 production full-stack features across React, Node.js, Express, MongoDB and REST APIs, delivered over 3 milestones.",
         "10 reusable UI components and backend routes that cut repeated work across modules.",
@@ -82,7 +82,7 @@ export const featured: Project[] = [
       hardPart: {
         title: "Fixing bugs without creating new ones",
         body:
-          "With a 4-person team shipping into the same codebase, stability mattered as much as speed. I worked through 15 issues with a fixed loop — reproduce, find the root cause, fix, then validate against the surrounding flows — and documented each feature for code review.",
+          "With a 4-person team shipping into the same codebase, stability mattered as much as speed. I worked through 15 issues with a fixed loop: reproduce, find the root cause, fix, then validate against the surrounding flows. I also documented each feature for code review.",
       },
       outcome: [
         "8 features shipped across 3 milestones",
@@ -96,7 +96,7 @@ export const featured: Project[] = [
     title: "Edisip",
     kind: "E-commerce for edible cups",
     year: "2025",
-    oneLiner: "An online store for VMAC's edible cups and cutlery — listing to checkout in one flow.",
+    oneLiner: "An online store for VMAC's edible cups and cutlery, from listing to checkout in one flow.",
     stack: ["Next.js", "Node.js", "Express", "MongoDB", "Razorpay"],
     highlights: ["cart & checkout", "order management", "payment gateway"],
     link: "https://www.edisip.com",
@@ -106,7 +106,7 @@ export const featured: Project[] = [
     caseStudy: {
       role: "Full-stack developer",
       problem:
-        "VMAC makes edible cups and cutlery (\"Edisip — made to munch\") and needed a store that felt as considered as the product, with payments and orders they could actually run a business on.",
+        "VMAC makes edible cups and cutlery (\"Edisip, made to munch\") and needed a store that felt as considered as the product, with payments and orders they could actually run a business on.",
       built: [
         "Product catalogue, cart and checkout as one continuous flow.",
         "Razorpay integration with server-side order creation and signature verification.",
@@ -126,7 +126,7 @@ export const featured: Project[] = [
     title: "Uniconnect",
     kind: "University event platform",
     year: "2025",
-    oneLiner: "End-to-end event management for campus clubs — one platform, every event.",
+    oneLiner: "End-to-end event management for campus clubs. One platform, every event.",
     stack: ["React", "Node.js", "Express", "MongoDB"],
     highlights: ["15+ endpoints", "3-tier RBAC", "CSV exports"],
     link: "https://uniconnect-qs2s.onrender.com/",

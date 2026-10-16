@@ -18,7 +18,7 @@ export function WorkMedia({
     return (
       <Image
         src={project.image}
-        alt={`${project.title} — ${project.kind} screenshot`}
+        alt={`${project.title}: ${project.kind} screenshot`}
         fill
         sizes={sizes}
         priority={priority}
@@ -29,7 +29,7 @@ export function WorkMedia({
   return (
     <div
       role="img"
-      aria-label={`${project.title} — ${project.kind}`}
+      aria-label={`${project.title}: ${project.kind}`}
       className={cn("absolute inset-0 flex flex-col justify-between p-[6%]", className)}
       style={{ background: `radial-gradient(120% 120% at 0% 0%, ${project.accent}55, transparent 60%), #0d0f0d` }}
     >

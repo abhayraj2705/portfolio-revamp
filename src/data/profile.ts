@@ -12,7 +12,7 @@ export const profile = {
   email: "abhayraj27052005@gmail.com",
   // Set NEXT_PUBLIC_SITE_URL in Vercel once you have a custom domain.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-revamp-three-theta.vercel.app",
-  // Résumé button stays hidden until public/resume.pdf exists — flip this when you add it.
+  // Résumé button stays hidden until public/resume.pdf exists; flip this when you add it.
   resume: null as string | null,
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/abhayraj-b-474890293/" },
@@ -23,7 +23,7 @@ export const profile = {
     rotating: ["products", "AI tools", "payment flows", "platforms", "anything."],
     after: "people actually use.",
   },
-  sub: "CS undergrad at MIT ADT University. I ship full-stack products — from GenAI app builders to payment platforms — with React, Next.js, Node and MongoDB.",
+  sub: "CS undergrad at MIT ADT University. I ship full-stack products, from GenAI app builders to payment platforms, with React, Next.js, Node and MongoDB.",
   stats: [
     { value: 8, suffix: "", label: "features shipped as an intern" },
     { value: 4, suffix: "+", label: "production apps live" },
@@ -33,7 +33,7 @@ export const profile = {
   about: {
     title: "The person behind the commits.",
     statement:
-      "I'm a computer science undergrad in Pune who likes the unglamorous parts of building — auth flows, payment webhooks, retry pipelines — the parts that decide whether an idea actually works. Lately I've been wiring models like GPT-4o and Claude into real products, and learning exactly where they break.",
+      "I'm a computer science undergrad in Pune who likes the unglamorous parts of building: auth flows, payment webhooks and retry pipelines. They're the parts that decide whether an idea actually works. Lately I've been wiring models like GPT-4o and Claude into real products, and learning exactly where they break.",
     beliefs: [
       "Ship it, then make it beautiful. Then ship it again.",
       "The boring backend is the product.",

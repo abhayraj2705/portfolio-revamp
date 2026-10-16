@@ -1,4 +1,4 @@
-// Motion tokens — docs/MOTION.md §1
+// Motion tokens: docs/MOTION.md §1
 export const ease = {
   out: [0.16, 1, 0.3, 1] as const,
   outSoft: [0.22, 1, 0.36, 1] as const,

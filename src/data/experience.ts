@@ -16,7 +16,7 @@ export const timeline: TimelineEntry[] = [
       {
         title: "Full Stack Developer Intern",
         org: "HackoSquad",
-        when: "Mar – Aug 2026",
+        when: "Mar to Aug 2026",
         bullets: [
           "Shipped 8 production full-stack features (React, Node, Express, MongoDB, REST) across 3 delivery milestones.",
           "Found and fixed 15 bugs through structured testing and root-cause analysis, improving app stability.",
@@ -31,7 +31,7 @@ export const timeline: TimelineEntry[] = [
       {
         title: "Technical Team Member",
         org: "ACES Club · MIT ADT University",
-        when: "Jan 2025 – Present",
+        when: "Jan 2025 to Present",
         bullets: [
           "Built internal tools and websites with a 5-person team, used by 200+ students.",
           "Shipped technical solutions for 3+ university events, improving registration flow and engagement.",
@@ -42,7 +42,7 @@ export const timeline: TimelineEntry[] = [
   },
   {
     year: "2024",
-    items: [{ title: "First product with real payments", note: "GetMeAChai — Razorpay, webhooks, OAuth." }],
+    items: [{ title: "First product with real payments", note: "GetMeAChai, with Razorpay, webhooks and OAuth." }],
   },
   {
     year: "2023",
@@ -50,7 +50,7 @@ export const timeline: TimelineEntry[] = [
       {
         title: "B.Tech, Computer Science & Engineering",
         org: "MIT ADT University, Pune",
-        when: "2023 – 2027",
+        when: "2023 to 2027",
         note: "CGPA 8.96",
       },
     ],
@@ -63,13 +63,13 @@ export const timeline: TimelineEntry[] = [
 
 export const certifications = [
   {
-    title: "AWS Academy Graduate — Cloud Foundations",
+    title: "AWS Academy Graduate: Cloud Foundations",
     issuer: "Amazon Web Services",
     date: "Oct 2025",
     href: null as string | null,
   },
   {
-    title: "Deloitte Australia — Cyber Job Simulation",
+    title: "Deloitte Australia: Cyber Job Simulation",
     issuer: "Forage",
     date: "Jul 2025",
     href: null as string | null,

@@ -37,7 +37,7 @@ export function HowIWork() {
   return (
     <section className="section border-t border-line" aria-labelledby="how-title">
       <div className="shell">
-        <p className="kicker mb-6">— Capabilities</p>
+        <p className="kicker mb-6">Capabilities</p>
         <SplitReveal id="how-title" className="display mb-14 max-w-4xl text-[length:var(--fs-h1)]">
           How I work.
         </SplitReveal>

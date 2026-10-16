@@ -112,7 +112,7 @@ export function PixelPortrait({ alt }: { alt: string }) {
         />
       </div>
       <figcaption className="mt-3 flex justify-between font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
-        <span>fig. 01 — abhayraj</span>
+        <span>fig. 01 · abhayraj</span>
         <span className="tabular-nums">{res >= FULL ? "960px" : `${res}px`}</span>
       </figcaption>
     </figure>

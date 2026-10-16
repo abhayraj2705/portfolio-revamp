@@ -67,7 +67,7 @@ export function Loader() {
     >
       <div className="flex justify-between font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
         <span>{profile.name}</span>
-        <span>Portfolio — 2026</span>
+        <span>Portfolio · 2026</span>
       </div>
       <p ref={nameRef} className="text-center font-deva text-[clamp(3rem,12vw,9rem)] leading-none">
         {profile.nameDeva}

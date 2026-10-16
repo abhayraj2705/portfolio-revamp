@@ -33,7 +33,7 @@ export function CommandPalette() {
       ...featured.map((p) => ({
         id: `work-${p.slug}`,
         group: "Work",
-        label: `${p.title} — ${p.kind}`,
+        label: `${p.title}: ${p.kind}`,
         hint: p.year,
         run: () => router.push(`/work/${p.slug}`),
       })),

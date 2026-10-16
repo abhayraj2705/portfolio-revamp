@@ -80,7 +80,7 @@ export function Toolbox() {
     <section className="border-t border-line py-20 md:py-28" aria-labelledby="toolbox-title">
       <div className="shell mb-8">
         <h2 id="toolbox-title" className="kicker">
-          — Toolbox
+          Toolbox
         </h2>
       </div>
       <div ref={ref} className="space-y-2">
