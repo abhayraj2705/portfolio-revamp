@@ -10,7 +10,7 @@ export const profile = {
   status: "Open to opportunities",
   email: "abhayraj27052005@gmail.com",
   // Set NEXT_PUBLIC_SITE_URL in Vercel once you have a custom domain.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://abhayrajb.in",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.abhayrajb.in",
   // Set to null to hide every résumé button.
   resume: "/resume.pdf" as string | null,
   resumeFileName: "Abhayraj-B-Resume.pdf",

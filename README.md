@@ -28,7 +28,7 @@ Common tasks:
 - **Update your résumé:** replace `public/resume.pdf`. It's linked from the nav, hero, ⌘K palette, mobile menu and Contact. Set `resume: null` in `profile.ts` to hide every button.
 - **Add a certification link:** set `href` on the entry in `experience.ts`.
 - **Add a project screenshot:** drop a `.webp` (about 1600px wide) in `public/work/` and set `image` on the project. Projects without one get a typographic poster.
-- **Domain:** defaults to `https://abhayrajb.in`; override with `NEXT_PUBLIC_SITE_URL`. It's used for canonical URLs, the sitemap and OG images.
+- **Domain:** defaults to `https://www.abhayrajb.in` (the apex redirects there); override with `NEXT_PUBLIC_SITE_URL`. It's used for canonical URLs, the sitemap and OG images.
 
 ## Structure
 
