@@ -77,8 +77,8 @@ export default async function CaseStudy({ params }: Params) {
 
       <div className="shell">
         <div
-          className="relative aspect-[16/9] overflow-hidden rounded-[3px] bg-surface"
-          style={{ viewTransitionName: `work-${p.slug}` }}
+          className="relative overflow-hidden rounded-[3px] bg-surface"
+          style={{ viewTransitionName: `work-${p.slug}`, aspectRatio: p.aspect ?? 16 / 9 }}
         >
           <WorkMedia project={p} sizes="(min-width: 1440px) 1312px, 100vw" priority />
         </div>

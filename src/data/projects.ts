@@ -9,6 +9,8 @@ export type Project = {
   highlights: string[];
   link: string;
   image?: string;
+  /** Screenshot width / height, so frames match it instead of cropping */
+  aspect?: number;
   hover: string;
   accent: string;
   caseStudy?: {
@@ -32,6 +34,7 @@ export const featured: Project[] = [
     highlights: ["plan → generate → compile → self-heal", "10+ API endpoints", "JWT auth", "live preview"],
     link: "https://ideabuilders.live/",
     image: "/work/idea-hero.webp",
+    aspect: 1917 / 872,
     hover: "the one I'm most proud of.",
     accent: "#ff5b3a",
     caseStudy: {
@@ -67,8 +70,10 @@ export const featured: Project[] = [
     stack: ["React", "Node.js", "Express", "MongoDB", "JWT"],
     highlights: ["8 features shipped", "3 delivery milestones", "15 issues resolved", "role-based access"],
     link: "https://www.hackosquad.com",
+    image: "/work/hackosquad-hero.webp",
+    aspect: 1901 / 813,
     hover: "security made simple.",
-    accent: "#4ade80",
+    accent: "#8b5cf6",
     caseStudy: {
       role: "Full Stack Developer Intern · Mar to Aug 2026",
       problem:
@@ -101,6 +106,7 @@ export const featured: Project[] = [
     highlights: ["cart & checkout", "order management", "payment gateway"],
     link: "https://www.edisip.com",
     image: "/work/edisip-hero.webp",
+    aspect: 1917 / 877,
     hover: "real payments, real users.",
     accent: "#8fbf4d",
     caseStudy: {
@@ -131,6 +137,7 @@ export const featured: Project[] = [
     highlights: ["15+ endpoints", "3-tier RBAC", "CSV exports"],
     link: "https://uniconnect-qs2s.onrender.com/",
     image: "/work/uniconnect-hero.webp",
+    aspect: 1917 / 876,
     hover: "built for my campus.",
     accent: "#6366f1",
     caseStudy: {

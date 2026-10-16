@@ -122,7 +122,7 @@ export function Work() {
                   {p.year} <span className="arrow">↗</span>
                 </span>
                 {/* Mobile thumbnail (desktop uses the floating preview) */}
-                <span data-thumb className="relative col-span-12 mt-2 block aspect-[16/10] overflow-hidden rounded-[2px] md:hidden">
+                <span data-thumb className="relative col-span-12 mt-2 block overflow-hidden rounded-[2px] md:hidden" style={{ aspectRatio: p.aspect ?? 16 / 10 }}>
                   <WorkMedia project={p} sizes="100vw" />
                 </span>
                 <span className="col-span-11 col-start-2 hidden h-5 font-mono text-xs text-accent md:block">
@@ -146,7 +146,7 @@ export function Work() {
           {/* All media stay mounted: the card scales in, and the active one wipes up over the rest */}
           <div
             className={cn(
-              "relative h-[200px] w-[320px] overflow-hidden rounded-[3px] shadow-2xl transition-[opacity,scale] duration-400 ease-[var(--ease-out)]",
+              "relative h-[182px] w-[400px] overflow-hidden rounded-[3px] shadow-2xl transition-[opacity,scale] duration-400 ease-[var(--ease-out)]",
               hovered === null ? "scale-[0.8] opacity-0" : "scale-100 opacity-100",
             )}
           >

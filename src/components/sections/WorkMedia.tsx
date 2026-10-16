@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export function WorkMedia({
   project,
   className,
-  sizes = "(min-width: 768px) 320px, 100vw",
+  sizes = "(min-width: 768px) 400px, 100vw",
   priority,
 }: {
   project: Project;

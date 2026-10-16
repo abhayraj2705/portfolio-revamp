@@ -99,7 +99,7 @@ Three tabs, each with a skill list:
 - **Stack:** React, Node.js, Express, MongoDB, JWT
 - **Highlights:** Role-based access · lab modules · progress tracking
 - **Link:** https://www.hackosquad.com
-- **Media:** ⚠️ none yet. Send a screenshot or I'll capture the live site during the build.
+- **Media:** `public/work/hackosquad-hero.webp` (landing page: "Learn Cybersecurity with Hands-On Training")
 - **Hover line:** "security made simple."
 
 ### 03 · Edisip: e-commerce for edible cups & cutlery · 2025 ✅
