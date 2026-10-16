@@ -83,8 +83,9 @@ export function Nav() {
       <header ref={ref} className="fixed inset-x-0 top-0 z-[70]">
         {/* Soft fade so text scrolling underneath never collides with the logo and controls */}
         <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-28 bg-gradient-to-b from-bg via-bg/80 to-transparent" />
-        <div className="shell flex h-16 items-center justify-between gap-4 md:h-20">
-          <TransitionLink href="/" aria-label={`${profile.name}, home`} className="group flex items-center gap-2 font-mono text-sm">
+        {/* Equal outer columns keep the pill truly centred regardless of side widths */}
+        <div className="shell flex h-16 items-center justify-between gap-4 md:grid md:h-20 md:grid-cols-[1fr_auto_1fr]">
+          <TransitionLink href="/" aria-label={`${profile.name}, home`} className="group flex items-center gap-2 justify-self-start font-mono text-sm">
             <span className="grid size-9 place-items-center rounded-full border border-line font-deva text-base transition-colors group-hover:border-accent group-hover:text-accent">
               अ
             </span>
@@ -118,7 +119,7 @@ export function Nav() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-1 md:gap-3">
+          <div className="flex items-center gap-1 justify-self-end md:gap-3">
             <span className="hidden font-mono text-[11px] uppercase tracking-[0.08em] text-muted lg:inline" suppressHydrationWarning>
               Pune <span className="text-ink">{time || "--:--"}</span> IST
             </span>
