@@ -10,7 +10,10 @@ import { Reveal } from "@/components/ui/Reveal";
 export function Contact() {
   const { toast } = useSite();
   const time = useLocalTime();
-  const links = [...profile.socials, ...(profile.resume ? [{ label: "Résumé", href: profile.resume }] : [])];
+  const links: { label: string; href: string; download?: string }[] = [
+    ...profile.socials,
+    ...(profile.resume ? [{ label: "Résumé (PDF)", href: profile.resume, download: profile.resumeFileName }] : []),
+  ];
 
   return (
     <section id="contact" className="section border-t border-line" aria-labelledby="contact-title">
@@ -51,7 +54,7 @@ export function Contact() {
             <ul className="flex flex-wrap gap-6">
               {links.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-1 text-lg">
+                  <a href={l.href} target="_blank" rel="noreferrer" download={l.download} className="group inline-flex items-center gap-1 text-lg">
                     <span className="u-link">{l.label}</span>
                     <span className="arrow text-accent">↗</span>
                   </a>

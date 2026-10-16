@@ -116,6 +116,16 @@ export function Hero() {
                 Start a conversation <span className="arrow">↗</span>
               </a>
             </Magnetic>
+            {profile.resume && (
+              <a
+                data-hero-fade
+                href={profile.resume}
+                download={profile.resumeFileName}
+                className="group inline-flex items-center gap-2 px-2 py-3 text-sm text-ink-2 transition-colors hover:text-ink"
+              >
+                <span className="u-link">Download résumé</span> <span className="text-accent">↓</span>
+              </a>
+            )}
           </div>
           <div data-hero-fade className="hidden items-center gap-3 font-mono text-[11px] uppercase tracking-[0.08em] text-muted md:flex">
             Scroll to discover

@@ -23,7 +23,10 @@ export const timeline: TimelineEntry[] = [
   },
   {
     year: "2024",
-    items: [{ title: "First product with real payments", note: "GetMeAChai, with Razorpay, webhooks and OAuth." }],
+    items: [
+      { title: "First product with real payments", note: "GetMeAChai, with Razorpay, webhooks and OAuth." },
+      { title: "Shipped Uniconnect", note: "A MERN platform for campus club events, with 2 admin levels and approval flows." },
+    ],
   },
   {
     year: "2025",
@@ -33,11 +36,11 @@ export const timeline: TimelineEntry[] = [
         org: "ACES Club · MIT ADT University",
         when: "Jan 2025 to Present",
         bullets: [
-          "Built internal tools and websites with a 5-person team, used by 200+ students.",
-          "Shipped technical solutions for 3+ university events, improving registration flow and engagement.",
+          "Delivered 3 digital systems for college events: websites, dashboards, registration tools and support apps.",
+          "Kept 4 live web interfaces running with a 5-person team, testing features and fixing issues during 3 college events.",
         ],
       },
-      { title: "Shipped Uniconnect and Edisip", note: "Campus event platform and a production e-commerce store." },
+      { title: "Shipped Edisip", note: "A production e-commerce store with payments, built from 6 core modules." },
     ],
   },
   {

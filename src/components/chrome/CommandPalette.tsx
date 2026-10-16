@@ -44,6 +44,29 @@ export function CommandPalette() {
         hint: profile.email,
         run: () => navigator.clipboard?.writeText(profile.email).then(() => toast("Email copied ✓")),
       },
+      ...(profile.resume
+        ? [
+            {
+              id: "resume-view",
+              group: "Actions",
+              label: "View résumé",
+              hint: "PDF ↗",
+              run: () => window.open(profile.resume!, "_blank", "noopener"),
+            },
+            {
+              id: "resume-download",
+              group: "Actions",
+              label: "Download résumé",
+              hint: "PDF ↓",
+              run: () => {
+                const a = document.createElement("a");
+                a.href = profile.resume!;
+                a.download = profile.resumeFileName;
+                a.click();
+              },
+            },
+          ]
+        : []),
       {
         id: "theme",
         group: "Actions",

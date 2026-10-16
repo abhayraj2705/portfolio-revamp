@@ -30,8 +30,8 @@ export const featured: Project[] = [
     year: "2026",
     tag: "Beta",
     oneLiner: "Describe the app. Get the whole codebase.",
-    stack: ["Next.js", "Node.js", "GPT-4o", "Claude", "Sandpack"],
-    highlights: ["plan → generate → compile → self-heal", "10+ API endpoints", "JWT auth", "live preview"],
+    stack: ["React", "Node.js", "Express", "MongoDB", "JWT", "GPT", "Gemini", "Claude"],
+    highlights: ["12 REST API routes", "JWT auth", "retry + output validation", "GPT, Gemini & Claude"],
     link: "https://ideabuilders.live/",
     image: "/work/idea-hero.webp",
     aspect: 1917 / 872,
@@ -42,20 +42,19 @@ export const featured: Project[] = [
       problem:
         "Most AI app builders hand you a pretty demo that falls apart the moment you clone it. Generated code that doesn't compile, imports that point nowhere, a backend that was never really there.",
       built: [
-        "A planning step that turns one prompt into a project spec (routes, data models, stack) before a single file is written.",
-        "File-by-file generation with GPT-4o and Claude, streamed into a live Sandpack preview.",
-        "A compile → validate → heal loop: every output is type-checked and linted, and failures are fed back to the model with the exact error until the build is green.",
-        "Templates, stack and database pickers, bring-your-own provider key, and one-click export / clone of the full repository.",
+        "An AI platform that turns natural-language prompts into deployable full-stack applications using the GPT, Gemini and Claude APIs.",
+        "12 REST API routes for authentication, prompt handling, code generation, validation and structured API responses.",
+        "Retry logic, error handling and output validation checks on generated code, so broken output is caught before you see it.",
+        "Templates, stack and database pickers, bring-your-own provider key, and export or clone of the full repository.",
       ],
-      // DRAFT: written from the project summary. Confirm the technical details before publishing.
       hardPart: {
-        title: "Making the model fix its own mistakes",
+        title: "Making generated code trustworthy",
         body:
-          "Blind retries just reproduce the same bug. The pipeline instead classifies each failure (syntax, missing import, type mismatch, runtime), attaches the smallest relevant context, and asks for a targeted patch rather than a full rewrite. Capped retries and per-file checkpoints keep a single bad file from sinking the whole generation.",
+          "A model will happily return code that doesn't run. IDEA treats every generation as untrusted: output is validated, errors are caught and handled, and failed generations are retried instead of being shown to you. That validate-and-retry loop cut invalid outputs by about 40%.",
       },
       outcome: [
         "~40% fewer invalid outputs reaching the user after the validate-and-retry pipeline",
-        "10+ REST endpoints behind JWT auth",
+        "12 REST API routes behind JWT auth",
         "Live in public beta at ideabuilders.live",
       ],
     },
@@ -83,11 +82,10 @@ export const featured: Project[] = [
         "10 reusable UI components and backend routes that cut repeated work across modules.",
         "Lab modules, role-based access and learner progress tracking.",
       ],
-      // DRAFT: written from the project summary. Confirm the technical details before publishing.
       hardPart: {
         title: "Fixing bugs without creating new ones",
         body:
-          "With a 4-person team shipping into the same codebase, stability mattered as much as speed. I worked through 15 issues with a fixed loop: reproduce, find the root cause, fix, then validate against the surrounding flows. I also documented each feature for code review.",
+          "With a 4-person team shipping into the same codebase, stability mattered as much as speed. I worked through 15 issues with a fixed loop: reproduce, find the root cause, fix, then validate against the surrounding flows. Git workflows, code reviews and feature documentation kept the code consistent across the team.",
       },
       outcome: [
         "8 features shipped across 3 milestones",
@@ -102,8 +100,8 @@ export const featured: Project[] = [
     kind: "E-commerce for edible cups",
     year: "2025",
     oneLiner: "An online store for VMAC's edible cups and cutlery, from listing to checkout in one flow.",
-    stack: ["Next.js", "Node.js", "Express", "MongoDB", "Razorpay"],
-    highlights: ["cart & checkout", "order management", "payment gateway"],
+    stack: ["React", "Next.js", "Node.js", "Express", "MongoDB", "Razorpay"],
+    highlights: ["6 core modules", "10 pages & endpoints", "payment gateway", "protected sessions"],
     link: "https://www.edisip.com",
     image: "/work/edisip-hero.webp",
     aspect: 1917 / 877,
@@ -114,27 +112,26 @@ export const featured: Project[] = [
       problem:
         "VMAC makes edible cups and cutlery (\"Edisip, made to munch\") and needed a store that felt as considered as the product, with payments and orders they could actually run a business on.",
       built: [
-        "Product catalogue, cart and checkout as one continuous flow.",
-        "Razorpay integration with server-side order creation and signature verification.",
-        "Order tracking for customers and order management for the team.",
+        "A complete store built from 6 core modules: products, cart, checkout, orders, users and dashboard.",
+        "Payment gateway workflows with transaction APIs and order confirmation.",
+        "10 frontend pages and backend endpoints for product management, data persistence, checkout and order processing.",
       ],
-      // DRAFT: written from the project summary. Confirm the technical details before publishing.
       hardPart: {
-        title: "Payments you can trust",
+        title: "Payments and sessions you can trust",
         body:
-          "The client never decides what was paid. Orders are created server-side, Razorpay signatures are verified before an order is marked paid, and the cart is re-priced on the server at checkout so a tampered client can't change totals.",
+          "Checkout touches money and accounts, so it can't be loose. Payments run through transaction APIs with order confirmation, and checkout, orders and the dashboard sit behind authentication and protected user sessions.",
       },
-      outcome: ["Live at edisip.com", "End-to-end order and payment flow in production"],
+      outcome: ["Live at edisip.com", "6 modules from catalogue to dashboard", "End-to-end order and payment flow in production"],
     },
   },
   {
     slug: "uniconnect",
     title: "Uniconnect",
     kind: "University event platform",
-    year: "2025",
+    year: "2024",
     oneLiner: "End-to-end event management for campus clubs. One platform, every event.",
     stack: ["React", "Node.js", "Express", "MongoDB"],
-    highlights: ["15+ endpoints", "3-tier RBAC", "CSV exports"],
+    highlights: ["3 event workflows", "2 admin levels", "protected routes", "CSV exports"],
     link: "https://uniconnect-qs2s.onrender.com/",
     image: "/work/uniconnect-hero.webp",
     aspect: 1917 / 876,
@@ -146,16 +143,16 @@ export const featured: Project[] = [
         "Club events at MIT ADT lived in WhatsApp groups and Google Forms. Nobody had one view of what was happening, who registered, or how an event actually went.",
       built: [
         "A central home for clubs (AWS Cloud, GDSC, Cinemaniacs and more) with event pages and announcements.",
-        "Role-based access across user → admin → super-admin.",
-        "Real-time registration tracking and CSV exports for club analytics.",
+        "3 event workflows: event creation, student sign-ups and admin approvals.",
+        "Role-based access for 2 admin levels using protected routes, REST APIs and permission-based controls.",
+        "Digitised event updates, participant records, approval flows and dashboard operations, with CSV exports.",
       ],
-      // DRAFT: written from the project summary. Confirm the technical details before publishing.
       hardPart: {
-        title: "Three roles, one API",
+        title: "Roles without the mess",
         body:
-          "15+ endpoints serve three very different audiences. Permissions live in middleware rather than in each route, so a club admin can manage their own events without ever seeing another club's data, and super-admins get the full picture.",
+          "Students, club admins and super-admins use the same platform but must see different things. Protected routes and permission-based controls on the API keep each role to its own actions, and approval flows replace the manual tracking clubs used to do.",
       },
-      outcome: ["15+ REST endpoints", "3-tier RBAC", "Used for real club events on campus"],
+      outcome: ["3 event workflows digitised", "2 admin levels behind protected routes", "Manual tracking replaced for campus clubs"],
     },
   },
 ];

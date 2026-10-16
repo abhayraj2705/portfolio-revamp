@@ -14,6 +14,7 @@ The single source of truth for every word on the site. Components should read fr
 | Field | Value | Src |
 |---|---|---|
 | Name | Abhayraj B | ✅ |
+| Domain | https://abhayrajb.in (from résumé; used for canonical URLs, sitemap, OG) | ✅ |
 | Name (Devanagari) | अभयराज | ✅ |
 | Role line | Full-stack engineer · AI systems | ✅ (derived) |
 | Location | Pune, India · पुणे · IST (GMT+5:30) | ✅ |
@@ -22,7 +23,7 @@ The single source of truth for every word on the site. Components should read fr
 | GitHub | https://github.com/abhayraj2705 | ✅ |
 | LinkedIn | https://www.linkedin.com/in/abhayraj-b-474890293/ | ✅ |
 | Phone | **Remove from the public site.** The current footer shows it. Scrapers harvest it and recruiters will email anyway. | — |
-| Résumé | `/resume.pdf`. You'll add it later. Hide the button until the file exists. | ⚠️ |
+| Résumé | `public/resume.pdf` (from `AbhayrajB.pdf`). Linked from the nav, hero, ⌘K palette, mobile menu and Contact. Downloads as `Abhayraj-B-Resume.pdf`. The résumé is the source of truth for project facts. | ✅ |
 | Portrait | `public/me/portrait.webp` (full, 960px) · `public/me/portrait-pixel-48.png` (pixelated) · `portrait-pixel-32.png` (chunkier option) · `portrait.png` is the 2 MB original, source only, never referenced | ✅ |
 
 ### Headline copy

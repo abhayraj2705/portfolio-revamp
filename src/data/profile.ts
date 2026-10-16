@@ -10,9 +10,10 @@ export const profile = {
   status: "Open to opportunities",
   email: "abhayraj27052005@gmail.com",
   // Set NEXT_PUBLIC_SITE_URL in Vercel once you have a custom domain.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-revamp-three-theta.vercel.app",
-  // Résumé button stays hidden until public/resume.pdf exists; flip this when you add it.
-  resume: null as string | null,
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://abhayrajb.in",
+  // Set to null to hide every résumé button.
+  resume: "/resume.pdf" as string | null,
+  resumeFileName: "Abhayraj-B-Resume.pdf",
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/abhayraj-b-474890293/" },
     { label: "GitHub", href: "https://github.com/abhayraj2705" },
@@ -25,7 +26,7 @@ export const profile = {
   sub: "CS undergrad at MIT ADT University. I ship full-stack products, from GenAI app builders to payment platforms, with React, Next.js, Node and MongoDB.",
   stats: [
     { value: 8, suffix: "", label: "features shipped as an intern" },
-    { value: 4, suffix: "+", label: "production apps live" },
+    { value: 6, suffix: "", label: "months as a full-stack intern" },
     { value: 40, prefix: "~", suffix: "%", label: "fewer invalid AI outputs" },
     { value: 8.96, suffix: "", label: "CGPA", decimals: 2 },
   ],

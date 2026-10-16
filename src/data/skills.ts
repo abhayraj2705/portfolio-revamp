@@ -3,19 +3,19 @@ export const disciplines = [
     id: "product",
     label: "Product engineering",
     line: "Interfaces that feel fast because they are fast.",
-    skills: ["React 19", "Next.js", "TypeScript", "Tailwind CSS", "Motion / GSAP", "Accessible, responsive UI"],
+    skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5 / CSS3", "Tailwind CSS", "GSAP", "Responsive, accessible UI"],
   },
   {
     id: "ai",
     label: "AI integration",
     line: "Models are unreliable collaborators. I build the guardrails.",
-    skills: ["GPT-4o", "Claude", "Gemini", "Hugging Face", "Prompt pipelines", "Validate & retry loops", "Sandpack previews"],
+    skills: ["GPT", "Claude", "Gemini", "Hugging Face", "Prompt pipelines", "Output validation & retries", "Structured API responses"],
   },
   {
     id: "backend",
     label: "Backend & infra",
     line: "The boring part that decides whether it works.",
-    skills: ["Node.js", "Express", "FastAPI", "MongoDB", "REST design", "JWT / NextAuth / RBAC", "Razorpay + webhooks", "AWS", "Vercel / Render", "Git workflows"],
+    skills: ["Node.js", "Express", "REST APIs", "MongoDB / Mongoose", "MySQL / SQL", "JWT / NextAuth / RBAC", "Razorpay + webhooks", "Docker", "AWS", "Git, Postman"],
   },
 ] as const;
 
@@ -26,6 +26,6 @@ export const process = [
 ];
 
 export const marquee = {
-  top: ["React", "Next.js", "TypeScript", "Node.js", "Express", "MongoDB", "Tailwind", "GSAP", "FastAPI", "Python"],
-  bottom: ["GPT-4o", "Claude", "Gemini", "Hugging Face", "Razorpay", "NextAuth", "JWT", "AWS", "Vercel", "Git"],
+  top: ["React", "Next.js", "TypeScript", "Node.js", "Express", "MongoDB", "MySQL", "C++", "Python", "Tailwind"],
+  bottom: ["GPT", "Claude", "Gemini", "Hugging Face", "Razorpay", "JWT", "Docker", "AWS", "Postman", "Git"],
 };

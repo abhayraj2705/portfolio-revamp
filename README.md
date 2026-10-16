@@ -25,10 +25,10 @@ All copy lives in typed data files, so you don't need to touch components:
 | Capabilities tabs, process steps, toolbox marquee | `src/data/skills.ts` |
 
 Common tasks:
-- **Add your résumé:** put `resume.pdf` in `public/`, then set `resume: "/resume.pdf"` in `profile.ts`. The button appears in Contact.
+- **Update your résumé:** replace `public/resume.pdf`. It's linked from the nav, hero, ⌘K palette, mobile menu and Contact. Set `resume: null` in `profile.ts` to hide every button.
 - **Add a certification link:** set `href` on the entry in `experience.ts`.
 - **Add a project screenshot:** drop a `.webp` (about 1600px wide) in `public/work/` and set `image` on the project. Projects without one get a typographic poster.
-- **Custom domain:** set `NEXT_PUBLIC_SITE_URL` in Vercel. It's used for canonical URLs, the sitemap and OG images.
+- **Domain:** defaults to `https://abhayrajb.in`; override with `NEXT_PUBLIC_SITE_URL`. It's used for canonical URLs, the sitemap and OG images.
 
 ## Structure
 

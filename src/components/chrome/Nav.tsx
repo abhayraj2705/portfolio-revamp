@@ -124,6 +124,16 @@ export function Nav() {
               Pune <span className="text-ink">{time || "--:--"}</span> IST
             </span>
             <MotionToggle className="hidden lg:inline" />
+            {profile.resume && (
+              <a
+                href={profile.resume}
+                target="_blank"
+                rel="noreferrer"
+                className="group hidden items-center gap-1 rounded-full border border-line px-3 py-1 font-mono text-[11px] uppercase tracking-[0.08em] text-ink-2 transition-colors hover:border-accent hover:text-ink md:inline-flex"
+              >
+                Résumé <span className="arrow text-accent">↗</span>
+              </a>
+            )}
             <ThemeToggle />
             <button
               type="button"
@@ -181,6 +191,11 @@ export function Nav() {
         </ul>
         <div className="shell flex items-center justify-between font-mono text-xs text-muted">
           <span suppressHydrationWarning>Pune {time} IST</span>
+          {profile.resume && (
+            <a href={profile.resume} target="_blank" rel="noreferrer" className="uppercase tracking-[0.08em] text-ink">
+              Résumé <span className="text-accent">↗</span>
+            </a>
+          )}
           <MotionToggle />
         </div>
       </div>
